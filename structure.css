@@ -1,0 +1,100 @@
+.splitContent {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+}
+
+.singleContent {
+    height: 80vh;
+}
+
+.splitContent>div {
+    height: 100%;
+}
+
+.first .photo {
+    background-color: lightseagreen;
+    flex-grow: 1;
+}
+
+.first .text {
+    background-color: lightgray;
+    width: 500px;
+}
+
+.second .photo {
+    background-color: lightgreen;
+    flex-grow: 1;
+}
+
+.second .text {
+    background-color: gray;
+    flex-grow: 1;
+}
+
+.third .photo {
+    background-color: lightskyblue;
+    flex-grow: 1;
+}
+
+.third .text {
+    background-color: #ddd;
+    flex-grow: 1;
+}
+
+.fourth .photo {
+    background-color: lightseagreen;
+    height: 100%;
+}
+
+.fifth {
+    position: relative;
+}
+
+.fifth .photo {
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.fifth .text {
+    background-color: lightgray;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.sixth .photo {
+    background-color: white;
+    flex-grow: 1;
+}
+
+.sixth .text {
+    background-color: white;
+    flex-grow: 1;
+}
+
+.seventh .photo {
+    background-color: darkgray;
+    flex-grow: 1;
+}
+
+.seventh .text {
+    background-color: lightpink;
+    flex-grow: 1;
+}
+
+.eighth .photo {
+    background-color: lightseagreen;
+    flex-grow: 1;
+}
+
+.eighth .text {
+    background-color: lightgray;
+    flex-grow: 1;
+}
