@@ -20,7 +20,6 @@
       type="text/css"
       media="screen"
     />
-    <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
   </head>
 
   <body>
@@ -197,20 +196,22 @@
             <p class="text" style="color: #868E96;"></p>
           </div>
         </div>
-        <!-- <div
-          class="col col-1-2"
-          style="background-image: url(img/top.png)"
-		> -->
         <div class="col col-1-2">
-          <style>
-            fill-container > viewer > nav-bar > div > div.logo-button {
+		  <style>
+			fill-container > viewer > nav-bar > div > div.logo-button {
               visibility: hidden;
             }
-          </style>
-          <babylon
-            model="./maquina.glb"
-            templates.main.params.fill-screen="true"
-          ></babylon>
+            .babylonContainer {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+		  <div class="babylonContainer">
+			<babylon>
+				<model url="./maquina.glb">
+			</babylon>
+		 </div>
+		 <script src="https://preview.babylonjs.com/viewer/babylon.viewer.js"></script>
         </div>
       </div>
       <!-- <div class="cols">
