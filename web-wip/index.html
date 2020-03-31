@@ -228,7 +228,7 @@
             function globalSceneInitCallback(scene) {
               scene.createDefaultCameraOrLight(true, true, true);
               var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-                "./cubemap.dds",
+                "./environment.dds",
                 scene
               );
               var currentSkybox = scene.createDefaultSkybox(hdrTexture, true);
