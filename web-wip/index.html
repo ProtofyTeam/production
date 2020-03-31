@@ -228,13 +228,21 @@
           <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
           <script>
             function globalSceneInitCallback(scene) {
+              foo = scene;
               scene.createDefaultCameraOrLight(true, true, true);
-              var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
-                "./environment.dds",
-                scene
-              );
-              var currentSkybox = scene.createDefaultSkybox(hdrTexture, true);
-              scene.createDefaultCameraOrLight(true, true, true);
+              // var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData(
+              //   "./environment.dds",
+              //   scene
+              // );
+              // var hdrTexture = new BABYLON.CubeTexture("./environment.dds", scene);
+              // var currentSkybox = scene.createDefaultSkybox(hdrTexture, true, 1000);
+              var hdrTexture = new BABYLON.CubeTexture("./environment.dds", scene);
+              setTimeout(function(){
+                var hdrTexture = new BABYLON.CubeTexture("./environment.dds", scene);
+                var currentSkybox = scene.createDefaultSkybox(hdrTexture, true, 1000);
+              }, 1);
+              // scene.createDefaultCameraOrLight(true, true, true);
+
             }
           </script>
         </div>
