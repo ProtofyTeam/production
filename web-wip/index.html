@@ -211,6 +211,8 @@
             }
           </style>
           <div class="babylonContainer">
+            <!-- Enable config loading disabling below, check extended.ts and Viewer/src/configuration for reference -->
+            <!-- <babylon observers.on-scene-init="globalSceneInitCallback" configuration="./viewerConfig.json"> -->
             <babylon observers.on-scene-init="globalSceneInitCallback">
               <model url="./maquina.glb" />
               <camera>

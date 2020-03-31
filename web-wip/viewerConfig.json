@@ -1,0 +1,19 @@
+{
+    "skybox": {
+        "scale": 11,
+        "cubeTexture": {
+            "url": "http://0.0.0.0:8000/environment.dds"
+        },
+        "pbr": true,
+        "material": {
+            "pbr": true,
+            "primaryColorHighlightLevel": 0.03,
+            "primaryColorShadowLevel": 0.03,
+            "enableNoise": true,
+            "useRGBColor": false,
+            "reflectionTexture": {
+                "gammaSpace": true
+            }
+        }
+    }
+}
