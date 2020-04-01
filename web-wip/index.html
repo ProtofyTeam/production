@@ -213,24 +213,52 @@
           <div class="babylonContainer">
             <!-- Enable config loading disabling below, check extended.ts and Viewer/src/configuration for reference -->
             <!-- <babylon observers.on-scene-init="globalSceneInitCallback" configuration="./viewerConfig.json"> -->
-            <babylon observers.on-scene-init="globalSceneInitCallback">
+            <babylon observers.on-model-loaded="globalModelLoadedCallback" observers.on-scene-init="globalSceneInitCallback">
               <model url="./maquina.glb" />
               <camera>
                 <behaviors>
                   <auto-rotate type="0"></auto-rotate>
                 </behaviors>
               </camera>
-              <lights>
-                <light1 type="1" shadow-enabled="true"> </light1>
-              </lights>
+
             </babylon>
           </div>
           <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
           <script>
-            function globalSceneInitCallback(scene) {
+            var scene;
+            var objs = {};
+            function globalModelLoadedCallback(scene) {
+                //kloofendalPartlyCloudyHDR.dds
+                if(scene.meshes) {
+                  for (var mesh of scene.meshes) {
+                    if(mesh.material && !objs.hasOwnProperty(mesh.material.name)) {
+                      mesh.material.roughness = mesh.material.roughness / 3; 
+                      objs[mesh.material.name] = true;
+                      if(mesh.material.name == "Material") {
+                        mesh.material.alpha = 0.05;
+                      } else if(mesh.material.name == "Default OBJ") {
+                        mesh.material.metallic = 0.75;
+                        mesh.material.roughness = 0.2;
+                        var c = mesh.material.albedoColor;
+                        c.r = c.g = c.b = 0.7;
+                        mesh.material.albedoColor = c;
+                      }
+                    }
+                    // you could do a if on material.name or id 
+                    // or use scene.getMaterialByName to find the materials to modify here.
+
+                    // material.lightmapTexture = ...
+                  }
+                }
+            }
+
+            function globalSceneInitCallback(es) {
               setTimeout(function(){
-                var hdrTexture = new BABYLON.CubeTexture("./shanghaiBundHDR.dds", scene);
-                var currentSkybox = scene.createDefaultSkybox(hdrTexture, true, 1000);
+                scene = es;
+                var hdrTexture = new BABYLON.CubeTexture("./parking.dds", scene);
+                hdrTexture.gammaSpace = false;
+                scene.environmentTexture = hdrTexture;
+                scene.clearColor = new BABYLON.Color3(8/255, 15/255, 23/255);   
               }, 1);
             }
           </script>
