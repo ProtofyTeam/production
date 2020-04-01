@@ -258,7 +258,8 @@
                 var hdrTexture = new BABYLON.CubeTexture("./parking.dds", scene);
                 hdrTexture.gammaSpace = false;
                 scene.environmentTexture = hdrTexture;
-                scene.clearColor = new BABYLON.Color3(8/255, 15/255, 23/255);   
+                scene.environmentIntensity = 0.8;
+                scene.ambientColor = new BABYLON.Color3(255/255, 255/255, 255/255);   
               }, 1);
             }
           </script>
