@@ -228,10 +228,8 @@
           <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
           <script>
             function globalSceneInitCallback(scene) {
-              foo = scene;
-              scene.createDefaultCameraOrLight(true, true, true);
               setTimeout(function(){
-                var hdrTexture = new BABYLON.CubeTexture("./environment.dds", scene);
+                var hdrTexture = new BABYLON.CubeTexture("./shanghaiBundHDR.dds", scene);
                 var currentSkybox = scene.createDefaultSkybox(hdrTexture, true, 1000);
               }, 1);
             }
