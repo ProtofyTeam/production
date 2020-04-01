@@ -2,7 +2,7 @@
     "skybox": {
         "scale": 11,
         "cubeTexture": {
-            "url": "http://0.0.0.0:8000/environment.dds"
+            "url": "./environment.dds"
         },
         "pbr": true,
         "material": {
