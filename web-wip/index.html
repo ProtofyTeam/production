@@ -255,11 +255,26 @@
             function globalSceneInitCallback(es) {
               setTimeout(function(){
                 scene = es;
+                var camera = scene.activeCamera;
                 var hdrTexture = new BABYLON.CubeTexture("./parking.dds", scene);
                 hdrTexture.gammaSpace = false;
                 scene.environmentTexture = hdrTexture;
                 scene.environmentIntensity = 0.8;
                 scene.ambientColor = new BABYLON.Color3(255/255, 255/255, 255/255);   
+/*
+                var ssao = new BABYLON.SSAO2RenderingPipeline("ssao", scene, {
+                    ssaoRatio: 0.5, // Ratio of the SSAO post-process, in a lower resolution
+                    blurRatio: 1 // Ratio of the combine post-process (combines the SSAO and the scene)
+                });
+
+                ssao.radius = 8;
+                ssao.totalStrength = 0.1;
+                ssao.expensiveBlur = true;
+                ssao.samples = 16;
+                ssao.maxZ = 100;
+                scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("ssao", camera);
+                */
+
               }, 1);
             }
           </script>
